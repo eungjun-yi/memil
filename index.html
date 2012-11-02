@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script>
+        /*
+      var access_token;
+      var getAccessToken = function(callback) {
+        // First, parse the query string
+        var params = {}, queryString = window.location.hash.substring(1),
+            regex = /([^&=]+)=([^&]*)/g, m;
+        while (m = regex.exec(queryString)) {
+          params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+        }
+      
+        access_token = params.access_token;
+      
+        if (!access_token) {
+	  var redirect_uri =
+            'https://' + window.location.host + window.location.pathname;
+
+          window.location = "https://accounts.google.com/o/oauth2/auth" +
+            "?response_type=token" +
+            "&client_id=558953187240-b399dnpnn77abaaoeij32h71cp74uaif.apps.googleusercontent.com" +
+            "&redirect_uri=" + redirect_uri +
+            "&scope=https://www.googleapis.com/auth/calendar" +
+            "&state=profile";
+        } else {
+	  window.location.hash = "";
+        }
+      }
+      getAccessToken();
+      */
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Event - The most simple way to create an event into your calendar</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script type="text/javascript">
+
+        /*
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-34925819-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        */
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-inline" id="new-event">
+	<fieldset>
+          <legend>Create an event into your Google Calendar!</legend>
+          <p>
+              <i class="what"></i>
+              <span id="what"></span>
+              <i class="when" style="display: none"></i>
+              <span id="when"></span>
+              <i class="where" style="display: none"></i>
+              <span id="where"></span>
+              <i class="with" style="display: none"></i>
+              <span id="with"></span>
+          </p>
+          <input type="text" id="event" class="input-xxlarge" placeholder="e.g.) lunch with my_friend@mail.com at Nice Resturant on Thursday 12:30" value="at 첫째주 월요일">
+	</fieldset>
+        <button type="submit" id="submit_button" class="btn btn-primary" data-loading-text="Wait...">Submit</button>
+      </form>
+      <p class="feedback"><a href="mailto:semtlenori@gmail.com">Feedback</a></p>
+      <p class="footnote"><a href="http://glyphish.com">Icons by Glyphish</a></p>
+    </div>
+    <script src="js/jquery-1.8.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/sugar-1.3.5.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/cal.js?6"></script>
+  </body>
+</html>

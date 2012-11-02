@@ -1,0 +1,37 @@
+i {
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+i.what {
+  background-image: url("../images/83-calendar.png");
+  width: 23px;
+  height: 25px;
+}
+
+i.when {
+  background-image: url("../images/11-clock.png");
+  width: 25px;
+  height: 25px;
+}
+
+i.where {
+  background-image: url("../images/07-map-marker.png");
+  width: 16px;
+  height: 26px;
+}
+
+i.with {
+  background-image: url("../images/111-user.png");
+  width: 24px;
+  height: 21px;
+}
+
+.footnote {
+  font-size: smaller;
+  text-align: right;
+}
+
+.feedback {
+  font-size: smaller;
+}
