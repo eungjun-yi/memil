@@ -65,8 +65,23 @@ var update = function() {
       }
       date = Date.create(phrase, 'ko');
       if (date == 'Invalid Date') {
-        date = null;
+        if( source.lastIndexOf("메밀꽃 필 무렵") > 1) {
+          date = new Date("2013/7/17");
+        } else if( source.lastIndexOf("첫 눈 올 때") > 1) {
+          date = new Date("2012/11/20");
+        } else {
+          date = null;  
+        }
+        
+      } else {
+        // post date processing for...
+       if( date.isToday() && date < new Date() ){
+          date.addHours(12);
+       }
+
       }
+
+
 
       if (!date) {
         if (name == 'with') {

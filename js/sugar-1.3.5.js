@@ -2266,7 +2266,7 @@
       if(isNumber(n)) {
         return n;
       } else if(n && (i = this['numbers'].indexOf(n)) !== -1) {
-        return (i + 1) % 10;
+        return (i + 1);
       } else {
         return 1;
       }
@@ -2298,11 +2298,11 @@
     },
 
     matchAM: function(str) {
-      return str === this['ampm'][0];
+      return str && str.match(new RegExp(this['ampm'][0]));
     },
 
     matchPM: function(str) {
-      return str && str === this['ampm'][1];
+      return str && str.match(new RegExp(this['ampm'][1]));
     },
 
     convertAdjustedToFormat: function(adu, mode) {
@@ -4814,17 +4814,17 @@ Date.addLocale('ko', {
   'digitDate': true,
   'monthSuffix': '월',
   'weekdays': '일요일,월요일,화요일,수요일,목요일,금요일,토요일',
-  'units': '밀리초,초,분,시간,일,주,개월|달,년|해',
-  'numbers': '일|한,이|두,삼|세,사|네,오|다섯,육|여섯,칠|일곱,팔|여덟,구|아홉,십|열',
+  'units': '밀리초,초,분,시간,일,주,개월|달,년|해,',
+  'numbers': '일|한,이|두,삼|세,사|네,오|다섯,육|여섯,칠|일곱,팔|여덟,구|아홉,십|열,,정오,,,보름',
   'short': '{yyyy}년 {M}월 {d}일',
   'long': '{yyyy}년 {M}월 {d}일 {H}시 {mm}분',
   'full': '{yyyy}년 {M}월 {d}일 {Weekday} {H}시 {mm}분 {ss}초',
   'past': '{num}{unit} {sign}',
   'future': '{num}{unit} {sign}',
-  'tokens': '자,시에|분에|일에|월에, ',
+  'tokens': '자,에|시에|분에|일에|월에,까지',
   'duration': '{num}{unit}',
-  'timeSuffixes': '시,분,초',
-  'ampm': '오전,오후',
+  'timeSuffixes': '시|시 |시까지|시 부터|시부터|시에,분|분 |분에|분까지|분 부터| 분부터|에|까지,초',
+  'ampm': '오전|아침|새벽,오후|밤|낮|저녁',
   'modifiers': [
     { 'name': 'day', 'src': '그저께', 'value': -2 },
     { 'name': 'day', 'src': '어제', 'value': -1 },
@@ -4832,21 +4832,23 @@ Date.addLocale('ko', {
     { 'name': 'day', 'src': '내일', 'value': 1 },
     { 'name': 'day', 'src': '모레', 'value': 2 },
     { 'name': 'day', 'src': '글피', 'value': 3 },
-    { 'name': 'day', 'src': '보름', 'value': 15 },
-    { 'name': 'sign', 'src': '전', 'value': -1 },
-    { 'name': 'sign', 'src': '후|뒤', 'value':  1 },
+    { 'name': 'sign', 'src': '전|전에', 'value': -1 },
+    { 'name': 'sign', 'src': '후|후에|뒤|뒤에', 'value':  1 },
+    { 'name': 'shift', 'src': '내후', 'value':  2 },
     { 'name': 'shift', 'src': '지난|작', 'value': -1 },
     { 'name': 'shift', 'src': '이번', 'value': 0 },
-    { 'name': 'shift', 'src': '다음|내', 'value': 1 }
+    { 'name': 'shift', 'src': '다음|내|돌아오는', 'value': 1 }
   ],
   'dateParse': [
     '{num}{unit} {sign}',
+    '{date} {sign}',
     '{shift?} {unit=5-7}'
   ],
   'timeParse': [
-    '{shift} {unit=5?} {weekday}',
+    '{shift} {unit=5?} {weekday}{2}?',
     '{year}년{month?}월?{date?}일?',
-    '{month}월 {date?}일?',
+    '{month}월 {date?}일?{2}?',
+    '{shift?} {unit=7?} {month}월 {date?}일?{2}?',
     '{shift?} {unit=5-7} {date?}일?',
     '{date}일',
   ]
