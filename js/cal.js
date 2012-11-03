@@ -265,9 +265,7 @@ var validateAccessToken = function(callback) {
 
 $(function() {
   try{
-    /*
     validateAccessToken(function() { console.log('validateAccessToken success'); });
-    */
     $('#event').focus();
     $('#event').keyup(update);
     $('#new-event').submit(function() {

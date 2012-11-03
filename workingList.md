@@ -35,6 +35,7 @@ Future works
  - 일요일 저녁 8시부터 
  - 돌아오는 목요일 저녁 8시에
  - 그녀와 저녁먹기 at 첫 눈 올 때
+ - 다음주 화요일 오후 1시에 점심먹기 nori@nhn.com doortts@gmail.com
 
  이벤트 약속
  ==========
