@@ -7,6 +7,8 @@ var updatePreview = function(data) {
     $('#what').text('');
   }
 
+  moment.calendar.sameElse = "YYYY-MM-DD HH:mm A";
+
   if (data['date']) {
     $('#when').text(moment(data['date']).calendar());
     $('.when').css('display', '');
