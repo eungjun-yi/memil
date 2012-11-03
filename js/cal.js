@@ -34,7 +34,54 @@ var updatePreview = function(data) {
   }
 }
 
+var getEmails = function(string) {
+  return string.match(/[^\s]+@[^\s]+/g);
+}
+
+var getDate = function(string) {
+  var dates = [];
+  var getDate2 = function(str) {
+    var match = str.match(/\s+/);
+    if (match) {
+      getDate2(str.substring(match.index + 1).trim());
+    }
+    while(str) {
+      date = Date.create(str.trim(), 'ko')
+      if (date && date != 'Invalid Date') {
+        dates[str.length] = [date, str];
+      }
+      str = str.substring(0, str.lastIndexOf(' '));
+    }
+  }
+
+  getDate2(string);
+
+  return dates.pop();
+}
+
 var update = function() {
+  var source = $('#event').val();
+  var result = getDate(source);
+  if (result) {
+    var date = result[0];
+    var origin = result[1];
+    source = source.replace(origin, '');
+  }
+  if (date && date != 'Invalid Date') {
+    data['date'] = date;
+  }
+  emails  = getEmails(source);
+  if (emails) {
+    for (var i = 0; i < emails.length; i++) {
+      source = source.replace(emails[i], '');
+    }
+  }
+  data['emails'] = emails;
+  data['summary'] = source;
+  updatePreview(data);
+}
+
+var update2 = function() {
   source = $('#event').val();
 
   var phrases = [];
