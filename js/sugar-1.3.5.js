@@ -4831,6 +4831,7 @@ Date.addLocale('ko', {
     { 'name': 'day', 'src': '오늘', 'value': 0 },
     { 'name': 'day', 'src': '내일', 'value': 1 },
     { 'name': 'day', 'src': '모레', 'value': 2 },
+    { 'name': 'day', 'src': '내일 모레', 'value': 2 },
     { 'name': 'day', 'src': '글피', 'value': 3 },
     { 'name': 'sign', 'src': '전|전에', 'value': -1 },
     { 'name': 'sign', 'src': '후|후에|뒤|뒤에', 'value':  1 },
